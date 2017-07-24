@@ -11,15 +11,16 @@ let Twitter = new twit(config);
 // TODO: Actually implement username length.
 let userName = "totiiimon";
 
-let longTweet = "Bueno esto es una prueba de un tweet muy largo para probar si esto que estoy haciendo funciona, y si lo hace, que bien, porque la verdad que esto lo pense hace ya un rato y bueno nada, estaria copado que funcionara asi nomas porque me parece que tendria que ser una idea facil de implementar asi que espero que sea util aunque creo que no porque todo lo que hago es inutil";
+let longTweet = "Bueno les cuento, esto que estoy haciendo es basicamente una aplicacion en donde podes escribir algo muy largo, desde una boludes que quieras contar, hasta una historia como un cuento y eso. asi que nada, si a alguien le sirve que bien ";
 // Refeer to https://stackoverflow.com/a/7033662/1493828 for the match part of the code.
 // Now we are hardcoding the number because i know my username is `totiiimon` but it could be used 
 // by whoever and it should work exactly the same.
+// Also the matching should separate words correctly and add a `...` to the tweets!
 longTweet = longTweet.match(/(.|[\r\105]){1,105}/g);
 
 let currentIndex = longTweet.length - 1;
 let postObj = {};
-let pastURLFormat = " twitter.com/totiiimon/status/{id}"
+let pastURLFormat = "…  twitter.com/totiiimon/status/{id}"
 
 let tweetLong = function (pastID) {
   if (!pastID) {
@@ -29,7 +30,7 @@ let tweetLong = function (pastID) {
   }
 
   Twitter.post("statuses/update", postObj, (err, data) => {
-    if (currentIndex === 0) {
+    if (currentIndex <= 0) {
       console.log("finished");
     } else {
       currentIndex--;
