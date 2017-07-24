@@ -1,0 +1,20 @@
+{
+  "name": "long-tweet",
+  "version": "1.0.0",
+  "description": "tweet really long stuff as a thread.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tomasdivito/long-tweet.git"
+  },
+  "keywords": [
+    "twitter",
+    "tweets",
+    "tool"
+  ],
+  "author": "Tomas Di Vito",
+  "license": "ISC"
+}
